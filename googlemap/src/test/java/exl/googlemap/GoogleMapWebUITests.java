@@ -3,13 +3,9 @@ package exl.googlemap;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import exl.pageobjectmodel.DestinationPage;
@@ -20,19 +16,18 @@ import frameworkhelper.IBaseDriver;
 import frameworkhelper.RemoteWebDriverBase;
 import frameworkhelper.WebDriverBase;
 
+@Test
 public class GoogleMapWebUITests {
 
 	private WebDriverWait wait;
-	
+
 	private IBaseDriver baseDriver;
 
-
- @AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void TearDown() {
 		baseDriver.TearDown();
 	}
-
-	@Test
+	@Test(priority = 2)
 	public void Given_GoogleMap_Page_Is_Opened_In_FireFox_When_Search_Route_Between_Cities_Then_RouteOptions_Returned_Should_Be_Eql_Expected_RouteOptions_And_Route_Data_Written_To_File()
 			throws IOException {
 
@@ -44,10 +39,11 @@ public class GoogleMapWebUITests {
 		 */
 		RunTest(InitLocalRun(BrowserType.FireFox), "route_FF.txt", "37.7576948", "-122.4726193");
 
-		//RunTest(InitRemoteRun(BrowserType.FireFox), "route_FF.txt", "37.7576948", "-122.4726193");
+		// RunTest(InitRemoteRun(BrowserType.FireFox), "route_FF.txt", "37.7576948",
+		// "-122.4726193");
 	}
 
-	@Test
+	@Test(priority = 1)
 
 	public void Given_GoogleMap_Page_Is_Opened_In_Chrome_When_Search_Route_Between_Cities_Then_RouteOptions_Returned_Should_Be_Eql_Expected_RouteOptions_And_Route_Data_Written_To_File()
 			throws IOException {
@@ -58,15 +54,16 @@ public class GoogleMapWebUITests {
 		 */
 		RunTest(InitLocalRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
 
-		//RunTest(InitRemoteRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
+		RunTest(InitRemoteRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
 	}
+
 
 	/*
 	 * Private methods
 	 */
 	private WebDriver InitLocalRun(BrowserType browserType) {
 		WebDriverBase localDriver = new WebDriverBase(browserType);
-		baseDriver = localDriver;	
+		baseDriver = localDriver;
 		wait = new WebDriverWait(localDriver.webDriver, 10);
 		return localDriver.webDriver;
 	}

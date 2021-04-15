@@ -39,7 +39,7 @@ public class FileWriterHelper {
 		routeInfoMap.add(new RouteInformationMap(routeTitles.get(0), routeTimes.get(0), routeMiles.get(0)));
 		routeInfoMap.add(new RouteInformationMap(routeTitles.get(1), routeTimes.get(1), routeMiles.get(1)));
 		routeInfoMap.add(new RouteInformationMap(routeTitles.get(2), routeTimes.get(2), routeMiles.get(2)));
-         String FilePath = "target/"+Filename;
+         String FilePath = "src/"+Filename;
 		File file = new File(FilePath);
 		if (file.exists()) {
 			file.delete();

@@ -2,6 +2,6 @@ package frameworkhelper;
 
 public enum BrowserType {
 
-	Chrome, FireFox,
+	Chrome, FireFox, IE
 
 }

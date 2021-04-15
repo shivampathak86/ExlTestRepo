@@ -45,7 +45,7 @@ public class DestinationPage {
 	}
 
 	public void ClickOnDirectionButton() {
-		WebElement btn = wait.until(ExpectedConditions.presenceOfElementLocated(directionButton));
+		WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(directionButton));
 		btn.click();
 
 	}

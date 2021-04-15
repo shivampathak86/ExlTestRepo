@@ -3,6 +3,7 @@ package frameworkhelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class WebDriverBase implements IBaseDriver {
 
@@ -20,6 +21,7 @@ public class WebDriverBase implements IBaseDriver {
 			System.setProperty("webdriver.gecko.driver", "src/geckodriver.exe");
 			webDriver = new FirefoxDriver();
 			webDriver.manage().window().maximize();
+			break;
 		default:
 			break;
 
