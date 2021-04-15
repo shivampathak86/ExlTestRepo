@@ -1,13 +1,13 @@
 # ExlTestRepo
 
-This is demo tests for EXL requirment for automating Google map web app searching. 
+This is demo project for web ui for EXL requirement for automating google map destination search 
 
-1. This automation project is created using Java and Selenium 3.14.X
-2. This automation is using appache mvn jar for installing selenium dependencies and running tests 
-3. The test framerwork is used is TestNg
-4. And project depcits an example of creating an automation framework from scratch , where there are diffeerent where there is separtaion of certain ( different layers of code )
-5. This project uses basic Selenium architecture - Page object Model
-6. THis project has only 1 tests but this tests can be extended to test multipe inputs like curreltly we are using below data as given in asissigmen
+1. This automation project is created using Java and Selenium 3.14.xx.
+2. This automationr project is using apache mvn pom.xml for installing selenium dependencies and running tests.
+3. The test framerwork used is TestNg  (latest version).
+4. The project is a example of creating an automation framework from scratch , where there are  different layers of code.
+5. This project uses very popular Selenium design pattern which is page object model.
+6. This project has 2 tests for Chrome and FireFox but the test can be extended to test multiple inputs, the current test input are provided by client 
 
 **Test input** **
 1. Launch Chrome
@@ -21,17 +21,18 @@ Hint: You can find this in the URL.
 
 
 **Known Bug **
-As noticed while executing the test script in different browsers i.e. Chrome amnd FireFox  , the latitude and longitude values which comes in URL chanegs in ForeFox browser in comprarison what is mentioned in the assigment , hence i have data driven test cases for asserting values of latitude and longitude for different browser cases. So in cae when verifying test script if you find the chnage in test which runs in Firefox , please note its intentional otherwise tests always fails due to incorrect values of latitude and longitude .
-
+As noticed while executing the test script in different browsers i.e. Chrome amnd FireFox  , the latitude and longitude values which comes in URL is didferent in firefox browser than what is mentioned in the assignment , hence i have data driven test case for asserting values of latitude and longitude for different browsers. So in case when verifying test script if you find the chnage in test which runs in firefox , please note its intentional otherwise tests always fails due to incorrect values of latitude and longitude.
+So point we needs to discusse whether the failing test should be kept as a part of test exeuction , so to report bug in google map in firefox browser, or we can next the coordinate values what is coming in actual so that we can have green test reports.
+Also there is another way to run test in firefox is to use  soft assertion , which will not abort the code execution once asssert even after there is  failure in code execution.
 
 **Important points**
-1. Test runs in chrome and firefox right now but the solution is extendable so any browser can be added in future 
+1. Test runs in chrome and firefox right now but the solution is extendable so any browser can be added in future.
 2. The routes.txt file is different for different browser and output path of these route files is given as relative to project foler , so it will be always under <YourMappedFolder>\ExlTestRepo\googlemap\src so after test execution you can find file in this pass with name route_Chrome.txt and route_FF.txt
 
 ************************************************************************
 **Running Test**
-1. This project is maven , so you can easily run test under this rpoject by using command line arguments .
-2. before running tests , please do below steps , if jdk 15 and maven 3.8.1 already present in system , then just go to **Executing tests** run test command 
+1. This project is a maven project , so you can easily run all test under this project by using mvn command line arguments .This execution is similar to excuting tests in any CI tool like jenkins/teamcity
+2. Before running tests , please peform below steps , if jdk 15 and maven 3.8.1 already installed in your system , then just go to **Executing tests** step
 **java install**
 Instal JDK 15 in your system
 once installing JDK 15
@@ -58,8 +59,7 @@ C:\Users\Shivam\Downloads\apache-maven-3.8.1-bin\apache-maven-3.8.1\bin (Here i 
  
  *****************************************************************
  **Github repo mapping**
-  easiest way 
-  Sign in to https://github.com/ and login
+  Sign in to https://github.com/ and 
   search for my repo : https://github.com/shivampathak86/ExlTestRepo
   Now option to map repo will come , under code button > Open Github desktop version
   it will download github deskptop client ( insatll only in case not done already)
@@ -79,21 +79,21 @@ C:\Users\Shivam\Downloads\apache-maven-3.8.1-bin\apache-maven-3.8.1\bin (Here i 
   4. run command : mvn install -X
   the abobve command will insatll all the required dependencies like Selenium , TestNG
   finally at the end it will trigger all the tests 
- 5. similarly you can use anotehr command: mvn clean test
+ 5. similarly you can use another command: mvn clean test
   the above command will clean project and run tests
  6. once tests are completed ouput file ( route_Chrome.txt and route_FF.txt ) should be shown in <your local folder path\ExlTestRepo\googlemap\src
   
 ****************************************************************************************
 **Test Reports**
 1. The plugins used in this project will automatically generates reports 
-2. you can veiew different format of reports 
+2. You can veiew different format of reports 
 Example as below , *Please note both report will have same data*
 If you use "mvn install" report will be generated in <your local folder path>\ExlTestRepo\googlemap\target\surefire-reports\emailable-report.html and index.html
 If you use "mvn clean test" report will be generated in <your local folder path>\ExlTestRepo\googlemap\test-output\emailable-report.html and index.html
   
 **********************************************************************************************
 **Execution of tests in cloud - LambdaTest**
-1. I have also created provision of running testin distributed - Selenium grid achitecture using cloud grid prvoder called lambdatest
+1. I have also created provision of running test indistributed - Selenium grid achitecture using cloud grid prvoder called lambdatest
 2. All you need  is uncomment code for running test in cloud architecture in file <your local folder path>\ExlTestRepo\googlemap\src\test\java\exl\googlemap\GoogleMapWebUITests.java
 3. Benifits 
  you can see video logs
