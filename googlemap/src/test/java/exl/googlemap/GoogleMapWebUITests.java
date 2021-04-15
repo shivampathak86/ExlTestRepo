@@ -38,9 +38,12 @@ public class GoogleMapWebUITests {
 		 * latitude and longitude is created
 		 */
 		RunTest(InitLocalRun(BrowserType.FireFox), "route_FF.txt", "37.7576948", "-122.4726193");
-
-		// RunTest(InitRemoteRun(BrowserType.FireFox), "route_FF.txt", "37.7576948",
-		// "-122.4726193");
+        
+		/*
+		 * Uncomment below line in you want to run code in Grid architecture using Lambda test
+		 * Using Lambda we can configure our test to run in any brwoser by changing browser capabilities 
+		 */
+		//RunTest(InitRemoteRun(BrowserType.FireFox), "route_FF.txt", "37.7576948","-122.4726193");
 	}
 
 	@Test(priority = 1)
@@ -53,8 +56,12 @@ public class GoogleMapWebUITests {
 		 * latitude and longitude is created
 		 */
 		RunTest(InitLocalRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
-
-		RunTest(InitRemoteRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
+        
+		/*
+		 * Uncomment below line in you want to run code in Grid architecture using Lambda test
+		 * Using Lambda we can configure our test to run in any brwoser by changing browser capabilities 
+		 */
+		//RunTest(InitRemoteRun(BrowserType.Chrome), "route_Chrome.txt", "37.7577627", "-122.4726194");
 	}
 
 
