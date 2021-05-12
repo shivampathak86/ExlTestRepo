@@ -3,7 +3,8 @@ package frameworkhelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverBase implements IBaseDriver {
 
@@ -13,12 +14,14 @@ public class WebDriverBase implements IBaseDriver {
 		switch (browserType) {
 		case Chrome:
 
-			System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+			// System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			webDriver = new ChromeDriver();
 			webDriver.manage().window().maximize();
 			break;
 		case FireFox:
-			System.setProperty("webdriver.gecko.driver", "src/geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver", "src/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			webDriver = new FirefoxDriver();
 			webDriver.manage().window().maximize();
 			break;
