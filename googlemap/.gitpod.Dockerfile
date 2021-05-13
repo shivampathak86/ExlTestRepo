@@ -6,13 +6,13 @@ RUN sudo apt-get -q update && \
     sudo apt-get install -yq chromium-browser && \
     sudo rm -rf /var/lib/apt/lists/*
     
-RUN apt-get update \
-&& apt-get install -y \
+RUN sudo apt-get update \
+&& sudo apt-get install -y \
    unzip \
    wget \
    libnss3 \
-&& rm -rf /var/lib/apt/lists/* \
-&& echo "progress = dot:giga" | tee /etc/wgetrc \
-&& mkdir -p /mnt /opt /data \
-&& wget https://github.com/andmarios/duphard/releases/download/v1.0/duphard -O /bin/duphard \
-&& chmod +x /bin/duphard
+&& sudo rm -rf /var/lib/apt/lists/* \
+&& sudo echo "progress = dot:giga" | tee /etc/wgetrc \
+&& sudo mkdir -p /mnt /opt /data \
+&& sudo wget https://github.com/andmarios/duphard/releases/download/v1.0/duphard -O /bin/duphard \
+&& sudo chmod +x /bin/duphard
